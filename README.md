@@ -1,6 +1,7 @@
 # python tetris
 
 ### structure
+```
 root
 ├── lib/
 │   ├── renderer.py
@@ -9,3 +10,4 @@ root
 │   ├── handler.py
 │   └── tetromino.py
 └── main.py
+```
