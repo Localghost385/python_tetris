@@ -2,12 +2,22 @@
 
 ### structure
 ```
-root
-├── lib/
-│   ├── renderer.py
-│   ├── event.py
-│   ├── app.py
-│   ├── handler.py
-│   └── tetromino.py
-└── main.py
+.
+├── flake.lock
+├── flake.nix
+├── LICENSE
+├── poetry.lock
+├── pyproject.toml
+├── README.md
+└── src
+    ├── lib
+    │   ├── app.py
+    │   ├── event.py
+    │   ├── handler.py
+    │   ├── renderer.py
+    │   ├── tetris_lib.py
+    │   └── tetromino.py
+    └── __main__.py
+
+
 ```

@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "python_tetris"
+version = "0.1.0"
+description = "tetris written in tetris"
+authors = ["Author Name <author@example.com>"]
+readme = "README.md"
+license = "MIT"
+packages = [
+  { include = "src" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
