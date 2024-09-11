@@ -7,8 +7,7 @@
       supportedSystems = [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
       pkgs = forAllSystems (system: nixpkgs.legacyPackages.${system});
-      # Resolve the relative path
-      customDir = builtins.toPath (self + "/scripts");
+      rootDir = builtins.toPath self;
     in
     {
       packages = forAllSystems (system: let
@@ -26,10 +25,12 @@
             poetry
           ];
           shellHook = ''
-            echo "Adding ${customDir} to PATH"
-            export PATH="${customDir}:$PATH"
-          '';
+            # Export custom directory to the PATH
+            export PATH="${rootDir}/scripts:$PATH"
 
+            # Export the root directory of the flake as an environment variable
+            export FLAKE_ROOT="${rootDir}"
+          '';
         };
       });
     };
