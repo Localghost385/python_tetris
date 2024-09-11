@@ -6,6 +6,10 @@
 class Tetromino:
     def __init__(self, rotations):
         self.rotations = rotations
+        
+    def __test__(self):
+        for i in range(0, 3134):
+            print(i)
 
 # Predefined tetromino shapes
 TETROMINO_SHAPES = [

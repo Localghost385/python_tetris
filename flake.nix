@@ -23,6 +23,10 @@
             (mkPoetryEnv { projectDir = self; })
             poetry
           ];
+          shellHook = ''
+            # Export the custom directory to the PATH
+            export PATH="${self}/scripts:$PATH"
+          '';
         };
       });
     };
