@@ -3,4 +3,6 @@
 # This software is released under the MIT License.
 # https://opensource.org/licenses/MIT
 
-poetry run pytest --cov --cov-report=html:coverage_re
+poetry run pytest --cov --cov-report=html:/tmp/python_tetris/coverage
+
+firefox /tmp/python_tetris/coverage/index.html

@@ -7,7 +7,6 @@
       supportedSystems = [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
       pkgs = forAllSystems (system: nixpkgs.legacyPackages.${system});
-      rootDir = builtins.toPath self;
     in
     {
       packages = forAllSystems (system: let
@@ -25,11 +24,8 @@
             poetry
           ];
           shellHook = ''
-            # Export custom directory to the PATH
-            export PATH="${rootDir}/scripts:$PATH"
-
-            # Export the root directory of the flake as an environment variable
-            export FLAKE_ROOT="${rootDir}"
+            # Export the custom directory to the PATH
+            export PATH="${self}/scripts:$PATH"
           '';
         };
       });
