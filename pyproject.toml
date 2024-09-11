@@ -12,6 +12,15 @@ packages = [
 [tool.poetry.dependencies]
 python = "^3.10"
 
+[tool.poetry.dev-dependencies]
+pytest = "^8.3.3"
+pytest-cov = "^5.0.0"
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+]
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

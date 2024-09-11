@@ -7,6 +7,8 @@
       supportedSystems = [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
       pkgs = forAllSystems (system: nixpkgs.legacyPackages.${system});
+      # Resolve the relative path
+      customDir = builtins.toPath (self + "/scripts");
     in
     {
       packages = forAllSystems (system: let
@@ -23,6 +25,11 @@
             (mkPoetryEnv { projectDir = self; })
             poetry
           ];
+          shellHook = ''
+            echo "Adding ${customDir} to PATH"
+            export PATH="${customDir}:$PATH"
+          '';
+
         };
       });
     };

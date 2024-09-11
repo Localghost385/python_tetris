@@ -3,11 +3,11 @@
 # This software is released under the MIT License.
 # https://opensource.org/licenses/MIT
 
-from .app import App
-from .event import Event
-from .handler import Handler
-from .renderer import Renderer
-from .tetromino import Tetromino, TETROMINO_SHAPES
+from .app.app import App
+from .event.event import Event
+from .handler.handler import Handler
+from .renderer.renderer import Renderer
+from .tetromino.tetromino import Tetromino, TETROMINO_SHAPES
 
 class TetrisLib:
     def __init__(self):
